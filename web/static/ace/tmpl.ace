@@ -1,0 +1,26 @@
+= doctype html
+html lang=en
+  head
+    meta charset=utf-8
+    title {{ .title }}
+    link rel="stylesheet" href="/assets/css/sdk.css"
+    link rel="stylesheet" href="/assets/css/helper.css"
+    link rel="stylesheet" href="/assets/css/iconfont.css"
+    link rel="stylesheet" href="/assets/css/hftoc.css"
+
+
+  body
+    div.app-wrapper
+      = yield header
+      = yield nav
+      = yield main
+      = yield footer
+
+    script src="/assets/js/sdk.js" type="text/javascript"
+    script src="/assets/js/jquery.js" type="text/javascript"
+    = javascript
+        (function() {
+            const amis = amisRequire('amis/embed');
+
+            amis.embed('#root', JSON.parse({{ .config }}), {},{});
+        })();
