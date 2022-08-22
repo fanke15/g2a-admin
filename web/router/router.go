@@ -1,6 +1,7 @@
 package router
 
 import (
+	"github.com/fanke15/g2a-admin/pkg/basic"
 	"github.com/fanke15/g2a-admin/pkg/lib/bolt"
 	"github.com/fanke15/g2a-admin/web/router/middleware"
 	"github.com/gin-gonic/gin"
@@ -28,5 +29,18 @@ func Router(e *gin.Engine) {
 	}
 
 	//-----------------------API-----------------------
+	api := e.Group("api")
+	{
+		acc := api.Group("account")
+		{
+			acc.POST("home", func(c *gin.Context) {
+
+				a := `{"status":0,"msg":"","data":{"type":"page","body":{"type":"property","title":"Information","items":[{"label":"system","content":"Linux"},{"label":"python","content":"3.7.9"},{"label":"program","content":"fastapi-amis-admin"},{"label":"version","content":"0.1.4"},{"label":"license","content":"Apache2.0"}]}}}`
+
+				c.String(200, string(basic.Marshal(a)))
+			})
+		}
+
+	}
 
 }

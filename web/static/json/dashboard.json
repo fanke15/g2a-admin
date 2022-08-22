@@ -1,17 +1,12 @@
 {
   "type": "app",
-  "brandName": "AmisAdmin",
+  "brandName": "G2aAdmin",
   "header": {
     "type": "flex",
     "className": "w-full",
     "justify": "flex-end",
     "alignItems": "flex-end",
     "items": [
-      {
-        "type": "tpl",
-        "tpl": "<div class='flex justify-between'><div></div><div><a href='' target='_blank' title='Copyright'><i class='fa fa-github fa-2x'></i></a></div></div>",
-        "className": "w-full"
-      },
       {
         "type": "dropdown-button",
         "icon": "fa fa-user",
@@ -54,11 +49,11 @@
     {
       "children": [
         {
-          "label": "Home",
+          "label": "Dashboard",
           "icon": "fa fa-home",
           "url": "",
           "schemaApi": {
-            "url": "",
+            "url": "/api/account/home",
             "method": "post",
             "data": {},
             "cache": 300000
@@ -67,7 +62,7 @@
           "sort": 100
         },
         {
-          "label": "用户授权",
+          "label": "Account",
           "icon": "fa fa-lock",
           "url": "",
           "children": [
