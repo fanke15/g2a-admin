@@ -35,7 +35,10 @@ func Router(e *gin.Engine) {
 		{
 			acc.POST("home", func(c *gin.Context) {
 
-				a := `{"status":0,"msg":"","data":{"type":"page","body":{"type":"property","title":"Information","items":[{"label":"system","content":"Linux"},{"label":"python","content":"3.7.9"},{"label":"program","content":"fastapi-amis-admin"},{"label":"version","content":"0.1.4"},{"label":"license","content":"Apache2.0"}]}}}`
+				a := `
+{"type":"page","body":{"type":"property","title":"Information","items":[{"label":"system","content":"Linux"},{"label":"python","content":"3.7.9"},{"label":"program","content":"fastapi-amis-admin"},{"label":"version","content":"0.1.4"},{"label":"license","content":"Apache2.0"}]}}
+
+`
 
 				c.String(200, string(basic.Marshal(a)))
 			})
