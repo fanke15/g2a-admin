@@ -1,2 +1,5 @@
 *.js linguist-language=Go
 *.css linguist-language=Go
+*.sh linguist-language=Shell
+*.ace linguist-language=Ace
+Makefile linguist-language=Shell
