@@ -1,0 +1,33 @@
+{
+  "type": "page",
+  "body": {
+    "type": "table",
+    "data": {
+      "items": [
+        {
+          "id": "1",
+          "color": "#108cee"
+        },
+        {
+          "id": "2",
+          "color": "#f38900"
+        },
+        {
+          "id": "3",
+          "color": "#04c1ba"
+        }
+      ]
+    },
+    "columns": [
+      {
+        "name": "id",
+        "label": "Id"
+      },
+      {
+        "name": "color",
+        "label": "颜色",
+        "type": "color"
+      }
+    ]
+  }
+}

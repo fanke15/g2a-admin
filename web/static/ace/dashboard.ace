@@ -1,8 +1,0 @@
-= content header
-
-= content nav
-
-= content main
-  div#root
-
-= content footer

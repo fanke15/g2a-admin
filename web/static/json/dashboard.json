@@ -39,7 +39,7 @@
             "type": "button",
             "actionType": "url",
             "label": "退出登录",
-            "url": ""
+            "url": "/"
           }
         ]
       }
@@ -51,162 +51,29 @@
         {
           "label": "Dashboard",
           "icon": "fa fa-home",
-          "url": "",
-          "schemaApi": {
-            "url": "/api/account/home",
-            "method": "post",
-            "data": {},
-            "cache": 300000
-          },
-          "isDefaultPage": "True",
-          "sort": 100
+          "url": "/",
+          "schemaApi": "get:/api/config/dashboard/chart",
+          "isDefaultPage": true
         },
         {
           "label": "Account",
           "icon": "fa fa-lock",
-          "url": "",
+          "url": "/account",
+          "rewrite": "/account/info",
           "children": [
             {
-              "label": "用户管理",
+              "label": "账户信息管理",
               "icon": "fa fa-user",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
+              "url": "info",
+              "schemaApi": "get:/api/config/account/info"
             },
             {
-              "label": "角色管理",
+              "label": "账户资产管理",
               "icon": "fa fa-group",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
-            },
-            {
-              "label": "用户组管理",
-              "icon": "fa fa-group",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
-            },
-            {
-              "label": "权限管理",
-              "icon": "fa fa-lock",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
-            }
-          ],
-          "sort": 99
-        },
-        {
-          "label": "定时任务",
-          "icon": "fa fa-clock-o",
-          "url": "",
-          "schemaApi": {
-            "url": "",
-            "method": "post",
-            "data": {},
-            "cache": 300000
-          }
-        },
-        {
-          "label": "博客应用",
-          "icon": "fa fa-wordpress",
-          "url": "",
-          "children": [
-            {
-              "label": "分类管理",
-              "icon": "fa fa-folder",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
-            },
-            {
-              "label": "文章管理",
-              "icon": "fa fa-file",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
-            },
-            {
-              "label": "标签管理",
-              "icon": "fa fa-tags",
-              "url": "",
-              "schemaApi": {
-                "url": "",
-                "method": "post",
-                "data": {},
-                "cache": 300000
-              }
+              "url": "asset",
+              "schemaApi": "get:/api/config/account/asset"
             }
           ]
-        },
-        {
-          "label": "AmisEditorDemo",
-          "icon": "fa fa-edit",
-          "url": "",
-          "schema": {
-            "type": "page",
-            "body": {
-              "type": "iframe",
-              "src": ""
-            }
-          },
-          "sort": -100
-        },
-        {
-          "label": "APIDocs",
-          "icon": "fa fa-book",
-          "children": [
-            {
-              "label": "AdminDocs",
-              "icon": "fa fa-book",
-              "url": "",
-              "schema": {
-                "type": "page",
-                "body": {
-                  "type": "iframe",
-                  "src": ""
-                }
-              }
-            },
-            {
-              "label": "AdminRedocs",
-              "icon": "fa fa-book",
-              "url": "",
-              "schema": {
-                "type": "page",
-                "body": {
-                  "type": "iframe",
-                  "src": ""
-                }
-              }
-            }
-          ],
-          "sort": -100
         }
       ]
     }
