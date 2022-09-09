@@ -1,6 +1,7 @@
 {
   "type": "app",
   "brandName": "G2aAdmin",
+  "logo": "/assets/img/favicon.ico",
   "header": {
     "type": "flex",
     "className": "w-full",
@@ -49,29 +50,29 @@
     {
       "children": [
         {
-          "label": "Dashboard",
+          "label": "仪表盘",
           "icon": "fa fa-home",
-          "url": "/",
-          "schemaApi": "get:/api/config/dashboard/chart",
+          "url": "#",
+          "schemaApi": "get:/conf/dashboard/chart",
           "isDefaultPage": true
         },
         {
-          "label": "Account",
+          "label": "账户",
           "icon": "fa fa-lock",
           "url": "/account",
           "rewrite": "/account/info",
           "children": [
             {
-              "label": "账户信息管理",
+              "label": "信息管理",
               "icon": "fa fa-user",
               "url": "info",
-              "schemaApi": "get:/api/config/account/info"
+              "schemaApi": "get:/conf/account/info"
             },
             {
-              "label": "账户资产管理",
+              "label": "资产管理",
               "icon": "fa fa-group",
               "url": "asset",
-              "schemaApi": "get:/api/config/account/asset"
+              "schemaApi": "get:/conf/account/asset"
             }
           ]
         }

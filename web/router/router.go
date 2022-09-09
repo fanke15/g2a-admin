@@ -10,36 +10,40 @@ import (
 func Router(e *gin.Engine) {
 	// 设置默认页面
 	e.NoRoute(func(c *gin.Context) {
-		c.Redirect(http.StatusPermanentRedirect, "/web/login")
+		c.Redirect(http.StatusPermanentRedirect, "/web/dashboard")
 	})
 
 	//-----------------------WEB-----------------------
 	webPage := e.Group("web")
 	{
-		webPage.GET("login", middleware.InitAce("tmpl", "index", map[string]interface{}{
-			"title":  "用户登录",
-			"config": string(bolt.InitBolt().Query("login")),
+		webPage.GET("login", middleware.InitAce(map[string]interface{}{
+			"title": "用户登录",
+			"conf":  string(bolt.InitBolt().Query("login")),
 		}))
 
-		webPage.GET("dashboard", middleware.InitAce("tmpl", "index", map[string]interface{}{
-			"config": string(bolt.InitBolt().Query("dashboard")),
+		webPage.GET("dashboard", middleware.InitAce(map[string]interface{}{
+			"conf": string(bolt.InitBolt().Query("dashboard")),
 		}))
+	}
+
+	//-----------------------CONF-----------------------
+	pageConf := e.Group("conf")
+	{
+		pageConf.GET("dashboard/chart", func(c *gin.Context) {
+			c.String(http.StatusOK, string(bolt.InitBolt().Query("dashboard_chart")))
+		})
+		pageConf.GET("account/info", func(c *gin.Context) {
+			c.String(http.StatusOK, string(bolt.InitBolt().Query("account_info")))
+		})
+		pageConf.GET("account/asset", func(c *gin.Context) {
+			c.String(http.StatusOK, string(bolt.InitBolt().Query("account_asset")))
+		})
 	}
 
 	//-----------------------API-----------------------
 	api := e.Group("api")
 	{
-		conf := api.Group("config")
-		{
-			conf.GET("dashboard/chart", func(c *gin.Context) {
-				c.String(http.StatusOK, string(bolt.InitBolt().Query("dashboardChart")))
-			})
-			conf.GET("account/info", func(c *gin.Context) {
-				c.String(http.StatusOK, string(bolt.InitBolt().Query("accountInfo")))
-			})
-			conf.GET("account/asset", func(c *gin.Context) {
-				c.String(http.StatusOK, string(bolt.InitBolt().Query("accountAsset")))
-			})
-		}
+		api.POST("login")
 	}
+
 }

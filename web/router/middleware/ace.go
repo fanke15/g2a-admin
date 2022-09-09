@@ -13,12 +13,9 @@ var (
 )
 
 // 模板初始化设置
-func InitAce(name, inner string, data interface{}) gin.HandlerFunc {
+func InitAce(data interface{}) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		tpl, err := ace.Load(
-			basic.AnySliceToStr(basic.StrNull, aceDir, name),
-			basic.AnySliceToStr(basic.StrNull, aceDir, inner),
-			&ace.Options{DynamicReload: true})
+		tpl, err := ace.Load(basic.AnySliceToStr(basic.StrNull, aceDir, "index"), "", &ace.Options{DynamicReload: true})
 		if err != nil {
 			log.Error(err.Error(), "func", "InitAce")
 			return
